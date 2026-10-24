@@ -14,7 +14,7 @@ Konteks & Keputusan Arsitektur (Pertemuan 5) serta Karakteristik Arsitektur & At
 | No | Stambuk | Nama | Akun GitHub | Kode yang dikerjakan |
 |---|---|---|---|---|
 | 1 |13020240291|Aidil Luthfi | @aidilluthfi07-glitch |BAB I,A1 |
-| 2 | | | @ | |
+| 2 |13020220153 |Samsudin Idris Renleew| @samsudinrenleeuw-dotcom |BAB1,A3|
 | 3 | | | @ | |
 | 4 | | | @ | |
 
@@ -27,7 +27,7 @@ Status: Belum / Draf / Selesai. Perbarui tabel ini setiap ada perubahan.
 | BAB I | laporan/BAB1-pendahuluan.md |Aidil Luthfi | Selesai |
 | A1 | laporan/A1-konteks-arsitektur.md |Aidil Luthfi | Selesai |
 | A2 | laporan/A2-stakeholder.md | | Belum |
-| A3 | laporan/A3-batasan.md | | Belum |
+| A3 | laporan/A3-batasan.md |Samsudin Idris Renleew| Selesai |
 | A4 | laporan/A4-asr.md | | Belum |
 | A5 | laporan/A5-keputusan-arsitektur.md dan adr/ | | Belum |
 | B1 | laporan/B1-karakteristik.md | | Belum |
