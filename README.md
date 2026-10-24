@@ -24,7 +24,7 @@ Status: Belum / Draf / Selesai. Perbarui tabel ini setiap ada perubahan.
 
 | Kode | Berkas | Penanggung jawab | Status |
 |---|---|---|---|
-| BAB I | laporan/BAB1-pendahuluan.md | | Belum |
+| BAB I | laporan/BAB1-pendahuluan.md |Aidil Luthfi | Selesai |
 | A1 | laporan/A1-konteks-arsitektur.md | | Belum |
 | A2 | laporan/A2-stakeholder.md | | Belum |
 | A3 | laporan/A3-batasan.md | | Belum |
