@@ -4,16 +4,16 @@ Konteks & Keputusan Arsitektur (Pertemuan 5) serta Karakteristik Arsitektur & At
 
 | Keterangan | Isi |
 |---|---|
-| Kelompok | Bagian [I / II / III] – Kelompok [XX] |
-| Subsistem | [salin dari tabel 2.2 pada dokumen tugas] |
-| Layanan inti | [salin dari tabel 2.2 pada dokumen tugas] |
-| Perwakilan kelompok | [nama, stambuk] |
+| Kelompok | Bagian II– Kelompok [1] |
+| Subsistem | Academic Management |
+| Layanan inti | Layanan pembayaran biaya pendidikan: informasi tagihan, pembayaran, konfirmasi, dan riwayat pembayaran |
+| Perwakilan kelompok | [Aidil Luthfi, 13020240291] |
 
 ## Anggota
 
 | No | Stambuk | Nama | Akun GitHub | Kode yang dikerjakan |
 |---|---|---|---|---|
-| 1 | | | @ | |
+| 1 |13020240291|Aidil Luthfi | @aidilluthfi07-glitch | |
 | 2 | | | @ | |
 | 3 | | | @ | |
 | 4 | | | @ | |
