@@ -9,4 +9,4 @@
 | 3 |	Kepala Bagian Keuangan | Manajemen (Management) |	
 | 4	| Dekan |	Manajemen Eksekutif | (Executive Management) |	
 | 5 |	Tim Pengembang IT |	Teknis (Technical Stakeholder) |	
-| 6 |	Penyedia Layanan Pembayaran |	Pihak Eksternal (External Stakeholder) |	
+| 6 |	Penyedia Layanan Pembayaran |	Pihak Eksternal (External Stakeholder) |
