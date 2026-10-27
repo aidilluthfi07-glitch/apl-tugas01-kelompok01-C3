@@ -1,7 +1,7 @@
 
 # A3. Batasan Sistem
 
-<!-- Penanggung jawab: Samsudin Idris Renleew -->
+<!-- Penanggung jawab: [Samsudin Idris Renleew] -->
 
 ## 1. Batasan Teknologi
 
