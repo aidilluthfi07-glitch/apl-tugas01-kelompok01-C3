@@ -1,38 +1,38 @@
-BAB I. PENDAHULUAN
+## BAB I. PENDAHULUAN
 
 Penanggung jawab: [Aidil Luthfi]
 
-1.1 Gambaran Layanan Inti
+## 1.1 Gambaran layanan inti
 
-Layanan pembayaran biaya pendidikan di Fakultas Ilmu Komputer Universitas Muslim Indonesia merupakan layanan administrasi yang berkaitan dengan pemenuhan kewajiban pembayaran mahasiswa. Layanan ini mencakup penyampaian informasi tagihan, proses pembayaran, konfirmasi pembayaran, serta penyediaan riwayat pembayaran yang dapat digunakan mahasiswa untuk mengetahui status transaksi mereka.
+Layanan pembayaran biaya pendidikan merupakan salah satu layanan administrasi yang mendukung proses pendidikan di Fakultas Ilmu Komputer Universitas Muslim Indonesia. Layanan ini berkaitan dengan penyampaian informasi tagihan, proses pembayaran, konfirmasi pembayaran, dan penyediaan riwayat pembayaran bagi mahasiswa.
 
-Dalam tugas mata kuliah Arsitektur Perangkat Lunak, kami melakukan pengamatan terhadap layanan tersebut untuk memahami bagaimana proses pembayaran berlangsung, bagaimana mahasiswa memperoleh informasi tagihan, serta bagaimana pihak-pihak yang terlibat berinteraksi dalam pelaksanaan layanan. Pengamatan ini juga mencakup hubungan antara proses bisnis, pengguna, dan sistem informasi yang mendukung pelayanan pembayaran.
+Sebagai mahasiswa, kami melakukan pengamatan terhadap layanan pembayaran biaya pendidikan untuk memahami alur pelayanan, fungsi yang tersedia bagi pengguna, serta hubungan antara mahasiswa, pihak administrasi, dan sistem informasi yang mendukung proses pembayaran. Pengamatan dilakukan dari sisi pengguna dengan memperhatikan informasi dan proses yang dapat diakses tanpa melakukan wawancara atau memeriksa sistem internal.
 
-Fokus pengamatan diarahkan pada alur layanan dari saat mahasiswa memperoleh informasi tagihan hingga pembayaran dikonfirmasi dan riwayat pembayaran dapat diperiksa. Hasil pengamatan selanjutnya digunakan sebagai dasar untuk menganalisis konteks arsitektur, pemangku kepentingan, batasan sistem, kebutuhan signifikan, serta karakteristik kualitas yang relevan.
+Hasil pengamatan digunakan sebagai dasar analisis dalam mata kuliah Arsitektur Perangkat Lunak, khususnya untuk memahami konteks arsitektur, kebutuhan pengguna, batasan sistem, kebutuhan signifikan, dan karakteristik kualitas layanan. Analisis dibatasi pada informasi yang dapat diamati dan dokumentasi yang tersedia.
 
-1.2 Ruang Lingkup (Kasus Penggunaan)
+## 1.2 Ruang lingkup (3–5 kasus penggunaan)
 
-Ruang lingkup pengamatan dibatasi pada empat fungsi utama layanan pembayaran biaya pendidikan, yaitu:
+Ruang lingkup pengamatan mencakup empat kasus penggunaan utama berikut.
 
-1. Melihat informasi tagihan: Mengamati bagaimana mahasiswa memperoleh informasi mengenai tagihan dan kewajiban pembayaran biaya pendidikan.
-2. Melakukan pembayaran: Mengamati alur pembayaran yang dilakukan mahasiswa serta pihak atau layanan yang terlibat dalam proses tersebut.
-3. Melakukan konfirmasi pembayaran: Mengamati bagaimana pembayaran dikonfirmasi, diverifikasi, dan diperbarui statusnya.
-4. Melihat riwayat pembayaran: Mengamati bagaimana mahasiswa dapat mengetahui informasi transaksi sebelumnya dan status pembayarannya.
+1. **Melihat informasi tagihan:** Mengamati bagaimana mahasiswa memperoleh informasi mengenai tagihan biaya pendidikan dan kewajiban pembayaran.
 
-Pengamatan berfokus pada interaksi mahasiswa dengan layanan, keterlibatan pihak administrasi, alur informasi, serta aspek kualitas layanan yang berkaitan dengan kemudahan penggunaan, keakuratan informasi, keamanan, dan keandalan.
+2. **Melakukan pembayaran:** Mengamati alur pembayaran berdasarkan prosedur dan metode yang tersedia bagi mahasiswa, tanpa melakukan transaksi keuangan yang sebenarnya.
 
-Pengamatan ini tidak mencakup pengembangan aplikasi, perubahan sistem yang sedang digunakan, ataupun pemeriksaan kode sumber dan infrastruktur internal apabila akses terhadap informasi tersebut tidak tersedia. Analisis arsitektur dilakukan berdasarkan informasi yang berhasil diperoleh selama pengamatan dan wawancara, jika dilakukan.
+3. **Melakukan konfirmasi pembayaran:** Mengamati informasi atau prosedur yang tersedia untuk mengetahui apakah pembayaran telah dikonfirmasi atau diverifikasi.
 
-1.3 Sumber Data
+4. **Melihat riwayat pembayaran:** Mengamati ketersediaan informasi transaksi sebelumnya dan status pembayaran yang dapat diakses oleh mahasiswa.
 
-Sumber data dalam laporan ini diperoleh melalui kegiatan pengamatan terhadap layanan pembayaran biaya pendidikan di Fakultas Ilmu Komputer Universitas Muslim Indonesia. Data yang digunakan mencakup informasi mengenai alur pelayanan, interaksi pengguna, proses pembayaran, mekanisme konfirmasi, dan penyediaan riwayat pembayaran.
+Pengamatan difokuskan pada fungsi layanan dari sudut pandang pengguna, alur informasi, serta aspek kualitas yang relevan, seperti kemudahan penggunaan, keakuratan informasi, keamanan, dan keandalan. Pengamatan tidak mencakup wawancara, pengembangan aplikasi, pemeriksaan kode sumber, akses ke data keuangan pribadi, maupun pemeriksaan infrastruktur internal.
 
-Sumber data yang digunakan meliputi:
+## 1.3 Sumber data
 
-1. Pengamatan langsung: Mengamati proses pelayanan dan interaksi pengguna dengan layanan pembayaran sesuai dengan akses yang tersedia.
-2. Informasi dari pengguna atau pihak terkait: Mengumpulkan keterangan melalui wawancara atau tanya jawab dengan mahasiswa maupun petugas administrasi, apabila kegiatan tersebut dilakukan.
-3. Informasi publik dan dokumentasi: Menggunakan informasi resmi atau dokumentasi yang tersedia dan relevan dengan layanan pembayaran biaya pendidikan.
+Sumber data dalam laporan ini diperoleh melalui pengamatan mandiri dan penelaahan informasi yang tersedia secara resmi. Data digunakan untuk memahami fungsi layanan, alur pembayaran, serta informasi yang dapat diakses oleh mahasiswa.
 
-Data yang dikumpulkan digunakan untuk mengidentifikasi kebutuhan pemangku kepentingan dan menganalisis aspek arsitektur perangkat lunak. Dalam penyusunan laporan, kami menjaga kerahasiaan informasi dengan tidak mencantumkan identitas pribadi, nomor pembayaran, data keuangan individual, maupun informasi lain yang bersifat sensitif.
+Sumber data meliputi:
 
-Temuan yang belum dapat diverifikasi akan dicatat sebagai asumsi atau hal yang memerlukan klarifikasi, bukan sebagai fakta yang telah dipastikan.
+1. **Pengamatan mandiri:** Pengamatan terhadap tampilan, fungsi, informasi, dan prosedur layanan yang dapat diakses oleh mahasiswa.
+2. **Dokumentasi resmi:** Panduan pembayaran, pengumuman, petunjuk penggunaan, atau dokumen resmi lain yang tersedia dan berkaitan dengan layanan pembayaran biaya pendidikan.
+3. **Informasi publik:** Informasi dari situs resmi atau kanal informasi institusi yang relevan dengan prosedur pembayaran mahasiswa.
+4. **Analisis kelompok:** Pengolahan hasil pengamatan dan dokumentasi untuk mengidentifikasi kebutuhan pengguna, batasan sistem, serta karakteristik kualitas yang berkaitan dengan arsitektur perangkat lunak.
+
+Pengamatan dilakukan tanpa wawancara dan tanpa mengakses informasi keuangan pribadi mahasiswa. Apabila informasi mengenai teknologi, basis data, atau proses internal tidak tersedia, hal tersebut dinyatakan sebagai keterbatasan pengamatan. Setiap asumsi dalam analisis dibedakan dari fakta yang berhasil diamati.
