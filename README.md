@@ -14,7 +14,7 @@ Konteks & Keputusan Arsitektur (Pertemuan 5) serta Karakteristik Arsitektur & At
 | No | Stambuk | Nama | Akun GitHub | Kode yang dikerjakan |
 |---|---|---|---|---|
 | 1 |13020240291|Aidil Luthfi | @aidilluthfi07-glitch |BAB I,A1 |
-| 2 |13020220153 |Samsudin Idris Renleew| @samsudinrenleeuw-dotcom |BAB1,A3|
+| 2 |13020220153 |Samsudin Idris Renleew| @samsudinrenleeuw-dotcom |BAB I,A3,B1|
 | 3 |13020240002 |Andi Muhammad Fadel | @andifadel26 |BAB I,A2 |
 | 4 |13020220017 |Muhammad Zulfikri Renhoran | @muhzulfikrirenhoran |BAB 1,A4 |
 
