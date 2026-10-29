@@ -1,4 +1,3 @@
-
 # A3. Batasan Sistem
 
 <!-- Penanggung jawab: [Samsudin Idris Renleew] -->
