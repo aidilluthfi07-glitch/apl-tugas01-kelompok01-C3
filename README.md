@@ -13,7 +13,7 @@ Konteks & Keputusan Arsitektur (Pertemuan 5) serta Karakteristik Arsitektur & At
 
 | No | Stambuk | Nama | Akun GitHub | Kode yang dikerjakan |
 |---|---|---|---|---|
-| 1 |13020240291|Aidil Luthfi | @aidilluthfi07-glitch |BAB I,A1,A5 |
+| 1 |13020240291|Aidil Luthfi | @aidilluthfi07-glitch |BAB I,A1,A5,B5 |
 | 2 |13020220153 |Samsudin Idris Renleew| @samsudinrenleeuw-dotcom |BAB I,A3,B1|
 | 3 |13020240002 |Andi Muhammad Fadel | @andifadel26 |BAB I,A2 |
 | 4 |13020220017 |Muhammad Zulfikri Renhoran | @muhzulfikrirenhoran |BAB 1,A4 |
@@ -34,7 +34,7 @@ Status: Belum / Draf / Selesai. Perbarui tabel ini setiap ada perubahan.
 | B2 | laporan/B2-atribut-terukur.md | | Belum |
 | B3 | laporan/B3-tiga-struktur.md dan diagram/ | | Belum |
 | B4 | laporan/B4-iso-25010.md | | Belum |
-| B5 | laporan/B5-trade-off.md | | Belum |
+| B5 | laporan/B5-trade-off.md |Aidil Luthfi | Selesai |
 | BAB IV | laporan/BAB4-penutup.md | | Belum |
 | Pustaka | laporan/daftar-pustaka.md | | Belum |
 
