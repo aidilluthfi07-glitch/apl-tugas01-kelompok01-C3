@@ -3,15 +3,15 @@
 
 <!-- Penanggung jawab: [Samsudin Idris Renleew] -->
 
-| No. | Kandidat Karakteristik | Kategori | Alasan |
-|---|---|---|---|
-| 1 | Ketersediaan Sistem | Operasional | Sistem perlu tersedia agar mahasiswa dapat melihat informasi tagihan dan status pembayaran ketika dibutuhkan. |
-| 2 | Kinerja Sistem | Operasional | Sistem perlu memberikan respons yang memadai saat pengguna mengakses informasi pembayaran. |
-| 3 | Kemudahan Penggunaan | Operasional | Antarmuka yang mudah dipahami membantu mahasiswa dan petugas menggunakan sistem dengan benar. |
-| 4 | Keamanan Data | Lintas Sektor | Data pribadi mahasiswa dan informasi transaksi harus dilindungi dari akses yang tidak berwenang. |
-| 5 | Integritas Data | Lintas Sektor | Informasi tagihan, status pembayaran, dan riwayat transaksi harus tetap akurat dan konsisten. |
-| 6 | Kemudahan Pemeliharaan | Struktural | Struktur sistem perlu mendukung perbaikan dan perubahan tanpa mengganggu fungsi utama secara berlebihan. |
-| 7 | Skalabilitas | Struktural | Arsitektur perlu mempertimbangkan kemungkinan bertambahnya jumlah mahasiswa dan transaksi. |
-| 8 | Interoperabilitas | Struktural | Sistem mungkin perlu berintegrasi dengan layanan pembayaran atau sistem administrasi lain. |
-| 9 | Auditabilitas | Lintas Sektor | Pencatatan aktivitas dan transaksi membantu pemeriksaan serta penelusuran apabila terjadi kesalahan. |
-| 10 | Keandalan Sistem | Operasional | Sistem perlu memproses dan menyajikan informasi pembayaran secara benar serta menangani kesalahan dengan baik. |
+| No. | Kandidat Karakteristik | Kategori | Stakeholder Terkait | Alasan |
+|---|---|---|---|---|
+| 1 | Kinerja Sistem | Operasional | Mahasiswa, Petugas Keuangan | Sistem perlu memberikan respons yang cepat saat pengguna mengakses informasi tagihan dan pembayaran. |
+| 2 | Ketersediaan Sistem | Operasional | Mahasiswa, Petugas Keuangan | Sistem perlu tersedia agar informasi tagihan dan status pembayaran dapat diakses saat dibutuhkan. |
+| 3 | Kemudahan Penggunaan | Operasional | Mahasiswa, Petugas Keuangan | Sistem perlu mudah dipahami agar pengguna dapat menjalankan tugasnya dengan benar. |
+| 4 | Keamanan Data | Lintas Sektor | Mahasiswa, Petugas Keuangan, Kepala Bagian Keuangan, Dekan | Data mahasiswa dan transaksi pembayaran perlu dilindungi dari akses yang tidak berwenang. |
+| 5 | Integritas Data | Lintas Sektor | Petugas Keuangan, Kepala Bagian Keuangan | Informasi tagihan, status pembayaran, dan riwayat transaksi harus akurat dan konsisten. |
+| 6 | Auditabilitas | Lintas Sektor | Kepala Bagian Keuangan, Dekan | Catatan transaksi diperlukan untuk membantu pemeriksaan dan pemantauan pembayaran. |
+| 7 | Kemudahan Pemeliharaan | Struktural | Tim Pengembang IT | Struktur sistem perlu memudahkan perbaikan dan perubahan ketika terjadi kebutuhan baru. |
+| 8 | Skalabilitas | Struktural | Tim Pengembang IT, Kepala Bagian Keuangan | Arsitektur perlu mempertimbangkan kemungkinan peningkatan jumlah pengguna dan transaksi. |
+| 9 | Interoperabilitas | Struktural | Tim Pengembang IT, Penyedia Layanan Pembayaran | Sistem mungkin perlu bertukar data dengan layanan pembayaran eksternal apabila integrasi dibutuhkan. |
+| 10 | Keandalan Sistem | Operasional | Mahasiswa, Petugas Keuangan, Kepala Bagian Keuangan | Sistem perlu memberikan informasi pembayaran yang benar dan menangani kesalahan dengan baik. |
