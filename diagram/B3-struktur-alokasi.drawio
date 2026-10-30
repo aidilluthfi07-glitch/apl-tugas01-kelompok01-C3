@@ -1,0 +1,39 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Struktur Alokasi Perbaikan FIKOM UMI" id="Br48ssljeUOCn6bPV2Ty">
+    <mxGraphModel dx="732" dy="562" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="9KVyqXK1Qjun3phsjhyR-1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;" value="3. Struktur Alokasi (Deployment &amp; Tim) - FIKOM UMI" vertex="1">
+          <mxGeometry height="30" width="600" x="150" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="9KVyqXK1Qjun3phsjhyR-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;" value="Server Aplikasi Cloud&#xa;(Docker Container / Nginx + App)" vertex="1">
+          <mxGeometry height="70" width="300" x="300" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="9KVyqXK1Qjun3phsjhyR-3" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundFill=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;" value="Klaster Basis Data Relasional&#xa;(PostgreSQL Master-Replica)" vertex="1">
+          <mxGeometry height="80" width="200" x="350" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="9KVyqXK1Qjun3phsjhyR-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;" value="Server Host-to-Host BNI&#xa;(Terowongan Aman VPN / TLS 1.3)" vertex="1">
+          <mxGeometry height="70" width="300" x="300" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="9KVyqXK1Qjun3phsjhyR-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;" value="Tim Pengembang Internal FIKOM UMI&#xa;(Backend, SIAKAD, &amp; Tim QA)" vertex="1">
+          <mxGeometry height="70" width="300" x="300" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="9KVyqXK1Qjun3phsjhyR-6" edge="1" parent="1" source="9KVyqXK1Qjun3phsjhyR-2" target="9KVyqXK1Qjun3phsjhyR-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9KVyqXK1Qjun3phsjhyR-7" edge="1" parent="1" source="9KVyqXK1Qjun3phsjhyR-3" target="9KVyqXK1Qjun3phsjhyR-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9KVyqXK1Qjun3phsjhyR-8" edge="1" parent="1" source="9KVyqXK1Qjun3phsjhyR-5" target="9KVyqXK1Qjun3phsjhyR-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="220" y="485" />
+              <mxPoint x="220" y="115" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

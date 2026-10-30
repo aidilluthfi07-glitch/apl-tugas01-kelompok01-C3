@@ -1,0 +1,46 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Struktur Komponen dan Konektor FIKOM UMI" id="FVdzXhyzCqiAtMiCMX2F">
+    <mxGraphModel dx="1030" dy="562" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="8R9FSdo7IC0bpc72HbAQ-7" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;" value="2. Struktur Komponen &amp; Konektor (Runtime C&amp;C) - FIKOM UMI" vertex="1">
+          <mxGeometry height="30" width="600" x="125" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="8R9FSdo7IC0bpc72HbAQ-8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" value="Klien Mahasiswa&#xa;(Portal Web / Mobile App)" vertex="1">
+          <mxGeometry height="60" width="300" x="275" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="8R9FSdo7IC0bpc72HbAQ-9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" value="API Gateway / Router" vertex="1">
+          <mxGeometry height="50" width="300" x="275" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="8R9FSdo7IC0bpc72HbAQ-10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" value="Backend Modular Monolith&#xa;(Logika Bisnis &amp; Layanan VA BNI)" vertex="1">
+          <mxGeometry height="70" width="300" x="275" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="8R9FSdo7IC0bpc72HbAQ-11" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;" value="API BNI Payment Gateway&#xa;(Sistem Eksternal Perbankan - Host-to-Host)" vertex="1">
+          <mxGeometry height="60" width="300" x="275" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="8R9FSdo7IC0bpc72HbAQ-12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" value="Antrean Pesan Asinkron / Outbox&#xa;(Webhook Listener &amp; Event Dispatcher)" vertex="1">
+          <mxGeometry height="60" width="300" x="275" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="8R9FSdo7IC0bpc72HbAQ-13" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundFill=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;" value="Database SIAKAD &amp; Keuangan&#xa;(PostgreSQL Terpusat)" vertex="1">
+          <mxGeometry height="80" width="200" x="325" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="8R9FSdo7IC0bpc72HbAQ-14" edge="1" parent="1" source="8R9FSdo7IC0bpc72HbAQ-8" target="8R9FSdo7IC0bpc72HbAQ-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8R9FSdo7IC0bpc72HbAQ-15" edge="1" parent="1" source="8R9FSdo7IC0bpc72HbAQ-9" target="8R9FSdo7IC0bpc72HbAQ-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8R9FSdo7IC0bpc72HbAQ-16" edge="1" parent="1" source="8R9FSdo7IC0bpc72HbAQ-10" target="8R9FSdo7IC0bpc72HbAQ-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8R9FSdo7IC0bpc72HbAQ-17" edge="1" parent="1" source="8R9FSdo7IC0bpc72HbAQ-11" target="8R9FSdo7IC0bpc72HbAQ-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8R9FSdo7IC0bpc72HbAQ-18" edge="1" parent="1" source="8R9FSdo7IC0bpc72HbAQ-12" target="8R9FSdo7IC0bpc72HbAQ-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

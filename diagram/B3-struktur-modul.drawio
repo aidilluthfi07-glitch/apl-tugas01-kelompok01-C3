@@ -1,0 +1,45 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Struktur Modul dengan Panah FIKOM UMI" id="ThoqvPNJJt6PxvbFLzaH">
+    <mxGraphModel dx="1030" dy="562" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="s75O_fg4MW8tcMk076mf-62" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;" value="1. Struktur Modul (Dengan Garis Ketergantungan) - FIKOM UMI" vertex="1">
+          <mxGeometry height="30" width="600" x="125" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="s75O_fg4MW8tcMk076mf-63" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" value="Modul Informasi Tagihan&#xa;(Billing &amp; Komponen Biaya UKT/SPP)" vertex="1">
+          <mxGeometry height="70" width="300" x="275" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="s75O_fg4MW8tcMk076mf-64" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" value="Modul Pembayaran BNI&#xa;(Integrasi BNI Virtual Account Host-to-Host)" vertex="1">
+          <mxGeometry height="70" width="300" x="275" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="s75O_fg4MW8tcMk076mf-65" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" value="Modul Konfirmasi &amp; Webhook&#xa;(Listener Callback &amp; Validasi Signature)" vertex="1">
+          <mxGeometry height="70" width="300" x="275" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="s75O_fg4MW8tcMk076mf-66" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" value="Modul Riwayat &amp; Rekonsiliasi&#xa;(Audit Trail &amp; Kuitansi Digital)" vertex="1">
+          <mxGeometry height="70" width="300" x="275" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="s75O_fg4MW8tcMk076mf-67" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" value="Modul Integrasi SIAKAD&#xa;(Sinkronisasi Status &amp; Belanja Mata Kuliah)" vertex="1">
+          <mxGeometry height="70" width="300" x="275" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="s75O_fg4MW8tcMk076mf-68" edge="1" parent="1" source="s75O_fg4MW8tcMk076mf-63" target="s75O_fg4MW8tcMk076mf-64">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s75O_fg4MW8tcMk076mf-69" edge="1" parent="1" source="s75O_fg4MW8tcMk076mf-64" target="s75O_fg4MW8tcMk076mf-65">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s75O_fg4MW8tcMk076mf-70" edge="1" parent="1" source="s75O_fg4MW8tcMk076mf-65" target="s75O_fg4MW8tcMk076mf-66">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s75O_fg4MW8tcMk076mf-71" edge="1" parent="1" source="s75O_fg4MW8tcMk076mf-65" target="s75O_fg4MW8tcMk076mf-67">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="220" y="305" />
+              <mxPoint x="220" y="505" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
