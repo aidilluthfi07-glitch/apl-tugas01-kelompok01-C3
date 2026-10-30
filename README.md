@@ -32,7 +32,7 @@ Status: Belum / Draf / Selesai. Perbarui tabel ini setiap ada perubahan.
 | A4 | laporan/A4-asr.md | | Belum |
 | A5 | laporan/A5-keputusan-arsitektur.md dan adr/ |Aidil Luthfi | Selesai |
 | B1 | laporan/B1-karakteristik.md | | Belum |
-| B2 | laporan/B2-atribut-terukur.md | | Belum |
+| B2 | laporan/B2-atribut-terukur.md |Samsudin Idris Renleew | Selesai|
 | B3 | laporan/B3-tiga-struktur.md dan diagram/ | | Belum |
 | B4 | laporan/B4-iso-25010.md | | Belum |
 | B5 | laporan/B5-trade-off.md |Aidil Luthfi | Selesai |
