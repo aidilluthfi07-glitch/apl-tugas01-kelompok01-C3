@@ -1,34 +1,52 @@
-# B3. Tiga Struktur Desain
+# B.3 Tiga Struktur Arsitektur (FIKOM UMI)
 
-<!-- Penanggung jawab: Ahmad Zaky Fayyad -->
-
-Bagian ini mendokumentasikan tiga struktur utama arsitektur perangkat lunak untuk subsistem **Academic Management**, khususnya pada layanan inti **Pembayaran Biaya Pendidikan** (informasi tagihan, pembayaran, konfirmasi, dan riwayat pembayaran).
+Dokumen ini mendeskripsikan arsitektur subsistem *Academic Management* untuk layanan pembayaran biaya pendidikan (UKT/SPP) FIKOM UMI berdasarkan tiga struktur utama: Struktur Modul, Struktur Komponen-dan-Konektor (C&C), dan Struktur Alokasi.
 
 ---
 
-## 1. Struktur Modul (*Module Structure*)
-Struktur modul mendokumentasikan dekomposisi unit kode perangkat lunak dan hierarki relasi antar komponen (*uses*, *is-part-of*):
-* **Billing Module (`/modules/billing`):** Menarik data SKS/status akademik dan menghitung besaran tagihan (UKT, SKS, denda).
-* **Payment Module (`/modules/payment`):** Mengelola eksekusi pembayaran otomatis via *Payment Gateway*/*Virtual Account* atau transaksi manual.
-* **Confirmation Module (`/modules/confirmation`):** Menangani jalur verifikasi *webhook callback* atau validasi manual bukti transfer oleh staf keuangan.
-* **History & Ledger Module (`/modules/history`):** Mencatat log audit transaksi (*immutable log*) dan pembuatan kwitansi PDF (*e-Receipt*).
+## 1. Struktur Modul (Module Structure)
+
+Struktur modul merepresentasikan pembagian unit kode sumber secara statis berdasarkan pemisahan tanggung jawab (*separation of concerns*).
+
+![Struktur Modul](../diagram/b3-1-struktur-modul.png)
+
+### Komponen Modul:
+1. **Modul Informasi Tagihan (Billing & Komponen Biaya UKT/SPP):** Mengelola rincian komponen biaya pendidikan mahasiswa dan pembuatan draft tagihan.
+2. **Modul Pembayaran BNI (Integrasi BNI Virtual Account Host-to-Host):** Menangani pembuatan nomor Virtual Account (VA) BNI dan komunikasi awal transaksi.
+3. **Modul Konfirmasi & Webhook (Listener Callback & Validasi Signature):** Menerima notifikasi *real-time* (callback) dari BNI, melakukan validasi keamanan *signature*, serta memastikan keabsahan transaksi.
+4. **Modul Riwayat & Rekonsiliasi (Audit Trail & Kuitansi Digital):** Mencatat jejak audit seluruh transaksi, pencocokan data keuangan, serta penerbitan kuitansi digital.
+5. **Modul Integrasi SIAKAD (Sinkronisasi Status & Belanja Mata Kuliah):** Memperbarui status pembayaran mahasiswa di SIAKAD secara otomatis agar mahasiswa dapat melakukan pengisian KRS/belanja mata kuliah.
+
+### Garis Ketergantungan (Dependency Flow):
+* `Modul Informasi Tagihan` $\rightarrow$ `Modul Pembayaran BNI` $\rightarrow$ `Modul Konfirmasi & Webhook` $\rightarrow$ `Modul Riwayat & Rekonsiliasi`.
+* `Modul Konfirmasi & Webhook` juga memiliki ketergantungan langsung ke `Modul Integrasi SIAKAD` untuk *trigger* pembukaan akses KRS sesaat setelah pembayaran terkonfirmasi.
 
 ---
 
-## 2. Struktur Komponen dan Konduktor (*Component-and-Connector / C&C Structure*)
-Struktur C&C menggambarkan aspek *runtime* dan komunikasi antar layanan saat sistem berjalan (referensi visual dapat disertakan dari folder `diagram/`):
-* **Client Layer:** Portal Web/Mobile bagi Mahasiswa dan Admin BAUK.
-* **API Gateway & Auth Service:** Pintu gerbang autentikasi (JWT) dan perutean permintaan ke layanan terkait.
-* **Financial Services:** Kumpulan layanan bisnis inti (Billing, Payment, Confirmation, History).
-* **External Systems:** Integrasi dengan *Payment Gateway* / Bank (VA / QRIS).
-* **Persistence Layer:** Basis data relasional (PostgreSQL) berstandar ACID dan *Object Storage* untuk berkas bukti bayar/kwitansi.
+## 2. Struktur Komponen & Konektor (Runtime C&C Structure)
+
+Struktur C&C mendeskripsikan elemen-elemen sistem yang berjalan pada saat *runtime* beserta pola interaksi dan konektor antarelemen.
+
+![Struktur C&C](../diagram/b3-2-struktur-cnc.png)
+
+### Elemen Runtime:
+* **Klien Mahasiswa (Portal Web / Mobile App):** Antarmuka pengguna untuk melihat tagihan dan status pembayaran.
+* **API Gateway / Router:** Gerbang tunggal penanganan lalu lintas permintaan (request routing, rate limiting, dan autentikasi).
+* **Backend Modular Monolith (Logika Bisnis & Layanan VA BNI):** Layanan pemprosesan utama yang mengeksekusi logika bisnis pembayaran secara terpusat.
+* **API BNI Payment Gateway (Sistem Eksternal Perbankan - Host-to-Host):** Layanan eksternal milik BNI untuk pemprosesan Virtual Account.
+* **Antrean Pesan Asinkron / Outbox (Webhook Listener & Event Dispatcher):** Mekanisme pemrosesan *event* secara asinkron untuk menjamin keandalan penerimaan notifikasi *webhook* dari BNI tanpa mengganggu performa utama.
+* **Database SIAKAD & Keuangan (PostgreSQL Terpusat):** Penyimpan data relasional utama untuk data akademis dan riwayat transaksi.
 
 ---
 
-## 3. Struktur Alokasi (*Allocation Structure*)
-Struktur alokasi memetakan elemen perangkat lunak ke dalam infrastruktur fisik, lingkungan server, dan alokasi tim:
-* **Deployment Mapping:** 
-  * Aplikasi backend dan API Gateway dijalankan dalam kontainer Docker pada *Cloud/VPS Server* kampus.
-  * Basis data ditempatkan pada kluster terisolasi dengan sistem *automated backup*.
-  * Berkas bukti transfer disimpan pada *Cloud Object Storage* yang aman.
-* **Team Allocation:** Pembagian tugas pengembangan modul didasarkan pada tanggung jawab fungsional (backend, frontend, database, dan integrasi sistem).
+## 3. Struktur Alokasi (Allocation Structure)
+
+Struktur alokasi menggambarkan pemetaan elemen perangkat lunak ke dalam lingkungan fisik/infrastruktur (*deployment*) serta alokasi tanggung jawab tim pengembang.
+
+![Struktur Alokasi](../diagram/b3-3-struktur-alokasi.png)
+
+### Pemetaan Lingkungan Deployment & Tim:
+* **Server Aplikasi Cloud (Docker Container / Nginx + App):** Wadah eksekusi *Backend Modular Monolith* yang dikemas dalam Docker container dan dilayani oleh Nginx *reverse proxy*.
+* **Klaster Basis Data Relasional (PostgreSQL Master-Replica):** Infrastruktur basis data terkonfigurasi *High Availability* (Master-Replica) untuk menjamin konsistensi data transaksi dan ketahanan sistem.
+* **Server Host-to-Host BNI (Terowongan Aman VPN / TLS 1.3):** Infrastruktur komunikasi khusus menuju BNI yang diproteksi menggunakan enkripsi TLS 1.3 / jalur VPN terisolasi.
+* **Tim Pengembang Internal FIKOM UMI (Backend, SIAKAD, & Tim QA):** Alokasi SDM internal yang bertanggung jawab atas pemeliharaan, *deployment*, dan pengujian pada *Server Aplikasi Cloud*.
