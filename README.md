@@ -17,7 +17,7 @@ Konteks & Keputusan Arsitektur (Pertemuan 5) serta Karakteristik Arsitektur & At
 | 2 |13020220153 |Samsudin Idris Renleew| @samsudinrenleeuw-dotcom |BAB I,A3,B1|
 | 3 |13020240002 |Andi Muhammad Fadel | @andifadel26 |BAB I,A2 |
 | 4 |13020220017 |Muhammad Zulfikri Renhoran | @muhzulfikrirenhoran |BAB 1,A4 |
-| 5 |13020240298 |Putra Satria Pratama | @raputsatria |BAB I,B4 |
+| 5 |13020240298 |Putra Satria Pratama | @raputsatria |BAB I,A3,B4 |
 
 ## Peta berkas dan penanggung jawab
 
