@@ -36,8 +36,8 @@ Status: Belum / Draf / Selesai. Perbarui tabel ini setiap ada perubahan.
 | B3 | laporan/B3-tiga-struktur.md dan diagram/ | | Belum |
 | B4 | laporan/B4-iso-25010.md |Putra Satria Pratama| Selesai |
 | B5 | laporan/B5-trade-off.md |Aidil Luthfi | Selesai |
-| BAB IV | laporan/BAB4-penutup.md | | Belum |
-| Pustaka | laporan/daftar-pustaka.md | | Belum |
+| BAB IV | laporan/BAB4-penutup.md |Aidil Luthfi  | Selesai |
+| Pustaka | laporan/daftar-pustaka.md |Aidil Luthfi  | Selesai |
 
 ## Laporan PDF terakhir
 
