@@ -1,47 +1,34 @@
-# B3. Tiga Struktur Arsitektur
+# B3. Tiga Struktur Desain
 
-Dokumen ini mendeskripsikan tiga struktur arsitektur utama perangkat lunak (berdasarkan pandangan *Bass, Clements, & Kazman*) untuk subsistem **Academic Management**, dengan fokus pada layanan inti **Pembayaran Biaya Pendidikan** (informasi tagihan, pembayaran, konfirmasi, dan riwayat pembayaran). Ketiga struktur tersebut meliputi **Struktur Modul** (*Module Structure*), **Struktur Komponen dan Konektor** (*C&C Structure*), dan **Struktur Alokasi** (*Allocation Structure*).
+<!-- Penanggung jawab: Ahmad Zaky Fayyad -->
+
+Bagian ini mendokumentasikan tiga struktur utama arsitektur perangkat lunak untuk subsistem **Academic Management**, khususnya pada layanan inti **Pembayaran Biaya Pendidikan** (informasi tagihan, pembayaran, konfirmasi, dan riwayat pembayaran).
 
 ---
 
 ## 1. Struktur Modul (*Module Structure*)
-Struktur modul menunjukkan bagaimana sistem didekomposisi ke dalam unit-unit kode terenkapsulasi (modul, kelas, atau *package*) berdasarkan prinsip tanggung jawab tunggal (*Single Responsibility Principle*).
-
-Pada layanan pembayaran biaya pendidikan, dekomposisi modul dibagi menjadi:
-* **Modul Informasi Tagihan (`BillingModule`):** 
-  * Menangani logika bisnis penarikan data tagihan mahasiswa per semester dari basis data akademik.
-  * Menghitung rincian komponen biaya (SPP/UKT, SKS, denda, atau potongan beasiswa).
-* **Modul Eksekusi Pembayaran (`PaymentExecutionModule`):** 
-  * Mengelola pembuatan kode bayar atau nomor *Virtual Account* berkoordinasi dengan layanan perbankan/eksternal.
-  * Menerapkan fungsi *payment lock* untuk mencegah transaksi ganda.
-* **Modul Konfirmasi & Verifikasi (`ConfirmationModule`):** 
-  * Menangani *webhook listener* otomatis dari *Payment Gateway* serta alur unggah bukti transfer manual beserta modul validasi bagi staf keuangan (BAUK).
-* **Modul Riwayat & Laporan (`HistoryReportingModule`):** 
-  * Bertanggung jawab mencatat log transaksi ke buku besar (*immutable ledger*) dan menghasilkan dokumen bukti lunas (*e-Receipt* PDF).
+Struktur modul mendokumentasikan dekomposisi unit kode perangkat lunak dan hierarki relasi antar komponen (*uses*, *is-part-of*):
+* **Billing Module (`/modules/billing`):** Menarik data SKS/status akademik dan menghitung besaran tagihan (UKT, SKS, denda).
+* **Payment Module (`/modules/payment`):** Mengelola eksekusi pembayaran otomatis via *Payment Gateway*/*Virtual Account* atau transaksi manual.
+* **Confirmation Module (`/modules/confirmation`):** Menangani jalur verifikasi *webhook callback* atau validasi manual bukti transfer oleh staf keuangan.
+* **History & Ledger Module (`/modules/history`):** Mencatat log audit transaksi (*immutable log*) dan pembuatan kwitansi PDF (*e-Receipt*).
 
 ---
 
-## 2. Struktur Komponen dan Konektor / C&C (*Component-and-Connector Structure*)
-Struktur C&C mendeskripsikan elemen-elemen saat sistem berjalan (*runtime elements*) seperti komponen, layanan (*services*), antrean, basis data, serta interaksi antar-elemen melalui konektor komunikasi.
-
-* **Alur Komponen & Konektor Sistem Pembayaran:**
-  1. **Client Layer (Portal Mahasiswa / Admin BAUK):** Mengirimkan permintaan HTTP/REST melalui protokol HTTPS ke *API Gateway*.
-  2. **API Gateway / Routing Layer:** Berperan sebagai pintu masuk tunggal yang melakukan verifikasi token autentikasi (JWT) dan meneruskan permintaan ke layanan finansial internal.
-  3. **Application Services (Backend Core):** 
-     * Kumpulan layanan modular yang memproses informasi tagihan, eksekusi bayar, dan pencatatan riwayat.
-     * Menggunakan **Message Queue** (seperti RabbitMQ) secara asinkron untuk mengirimkan notifikasi (email/WhatsApp) dan mencetak kwitansi agar tidak membebani proses transaksi utama.
-  4. **Eksternal Payment Gateway / Bank API:** Pihak ketiga tempat mahasiswa melakukan pembayaran secara langsung (*Virtual Account*, QRIS, e-Wallet). Mengirimkan notifikasi balik (*Webhook Callback*) ke server kampus setelah pembayaran sukses.
-  5. **Persistence Layer (Database & Storage):** 
-     * Relational Database (PostgreSQL/MySQL) yang dikelola dengan transaksi **ACID** untuk tabel tagihan dan transaksi pembayaran.
-     * Object Storage (AWS S3 / MinIO) untuk menyimpan berkas bukti transfer manual dan file PDF kwitansi.
+## 2. Struktur Komponen dan Konduktor (*Component-and-Connector / C&C Structure*)
+Struktur C&C menggambarkan aspek *runtime* dan komunikasi antar layanan saat sistem berjalan (referensi visual dapat disertakan dari folder `diagram/`):
+* **Client Layer:** Portal Web/Mobile bagi Mahasiswa dan Admin BAUK.
+* **API Gateway & Auth Service:** Pintu gerbang autentikasi (JWT) dan perutean permintaan ke layanan terkait.
+* **Financial Services:** Kumpulan layanan bisnis inti (Billing, Payment, Confirmation, History).
+* **External Systems:** Integrasi dengan *Payment Gateway* / Bank (VA / QRIS).
+* **Persistence Layer:** Basis data relasional (PostgreSQL) berstandar ACID dan *Object Storage* untuk berkas bukti bayar/kwitansi.
 
 ---
 
 ## 3. Struktur Alokasi (*Allocation Structure*)
-Struktur alokasi memetakan elemen perangkat lunak (modul/komponen) ke lingkungan fisik atau infrastruktur tempat sistem tersebut dijalankan dan dikelola.
-
-* **Pemetaan Perangkat Lunak ke Infrastruktur:**
-  * **Application Containerization (Docker):** Seluruh modul layanan *backend* (Informasi Tagihan, Pembayaran, Konfirmasi, Riwayat) dikemas ke dalam kontainer Docker terisolasi agar mudah diskala (*scaling*) saat terjadi lonjakan trafik masa pembayaran awal semester.
-  * **Database Deployment:** Basis data relasional ditempatkan pada server basis data terdedikasi dengan konfigurasi *Primary-Replica* untuk memisahkan beban baca (*read-heavy* pada riwayat/tagihan) dan tulis (*write-heavy* saat transaksi pembayaran).
-  * **Storage Allocation:** Berkas bukti transfer dan *e-Receipt* dialokasikan ke layanan *Cloud Object Storage* atau direktori *Network Attached Storage* (NAS) kampus yang aman.
-  * **Web Server & Load Balancer:** Menggunakan Nginx sebagai *Reverse Proxy* dan *Load Balancer* di depan kontainer aplikasi untuk mendistribusikan ribuan akses konkuren dari mahasiswa secara merata ke beberapa instance server *backend*.
+Struktur alokasi memetakan elemen perangkat lunak ke dalam infrastruktur fisik, lingkungan server, dan alokasi tim:
+* **Deployment Mapping:** 
+  * Aplikasi backend dan API Gateway dijalankan dalam kontainer Docker pada *Cloud/VPS Server* kampus.
+  * Basis data ditempatkan pada kluster terisolasi dengan sistem *automated backup*.
+  * Berkas bukti transfer disimpan pada *Cloud Object Storage* yang aman.
+* **Team Allocation:** Pembagian tugas pengembangan modul didasarkan pada tanggung jawab fungsional (backend, frontend, database, dan integrasi sistem).
